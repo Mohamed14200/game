@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>من سيربح المليون؟</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Cairo', sans-serif; /* A nice Arabic font */
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        color: #f0f0f0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+      .money-tree-item.current {
+        background-color: #f59e0b; /* Amber-500 */
+        color: #1f2937; /* Gray-800 */
+      }
+      .money-tree-item.guaranteed {
+        background-color: #3b82f6; /* Blue-500 */
+        color: white;
+      }
+      .option-button:hover:not(:disabled) {
+        background-color: #ca8a04; /* Yellow-600 */
+      }
+      .option-button.selected {
+        background-color: #f59e0b; /* Amber-500 */
+        border-color: #fcd34d; /* Amber-300 */
+      }
+      .option-button.correct {
+        background-color: #10b981; /* Emerald-500 */
+        animation: pulse-green 1s infinite;
+      }
+      .option-button.incorrect {
+        background-color: #ef4444; /* Red-500 */
+        animation: pulse-red 1s infinite;
+      }
+      .lifeline-button:hover:not(:disabled) {
+         background-color: #4f46e5; /* Indigo-600 */
+      }
+       .lifeline-button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .lifeline-button.used {
+        background-color: #71717a; /* Zinc-500 */
+        text-decoration: line-through;
+      }
+
+      @keyframes pulse-green {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+        50% { box-shadow: 0 0 10px 5px rgba(16, 185, 129, 0); }
+      }
+      @keyframes pulse-red {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+        50% { box-shadow: 0 0 10px 5px rgba(239, 68, 68, 0); }
+      }
+      @keyframes suspense-pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.03); opacity: 0.85; }
+      }
+      .suspense-bg {
+        animation: suspense-pulse 2s infinite ease-in-out;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.0.1",
+    "recharts": "https://esm.sh/recharts@^2.15.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root" class="w-full h-full"></div>
+    <script type="module" src="./index.mjs"></script>
+  </body>
+</html>
+<link rel="stylesheet" href="index.css">
+<script src="index.tsx" type="module"></script>
